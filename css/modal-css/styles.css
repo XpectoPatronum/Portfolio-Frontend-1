@@ -1,0 +1,198 @@
+/* Modal Styles */
+.my-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1050; /* Sit on top (higher than most Bootstrap elements) */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    backdrop-filter: blur(9px);
+    border-radius: 8px;
+    /* Add these for better centering */
+    align-items: center;
+    justify-content: center;
+}
+
+.input-field input {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #eeeeee;
+}
+.my-modal-content {
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: relative; /* For close button positioning */
+    color: white;
+}
+
+.my-modal-content h2 {
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.my-close {
+    color: white;
+    position: absolute; /* Position within modal-content */
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1051; /* Ensure it's above the modal content */
+}
+
+.my-close:hover,
+.my-close:focus {
+    color: white;
+    text-decoration: none;
+}
+
+/* Style the form elements for better appearance */
+#tradeForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#tradeForm input[type="text"],
+#tradeForm input[type="number"],
+#tradeForm select{
+    width: calc(100% - 12px); /* Account for padding */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding in width */
+    background-color: transparent;
+    color: white;
+}
+
+#tradeForm button[type="submit"] {
+    background-color: #fdd114; /* Bootstrap primary color */
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#tradeForm button[type="submit"]:hover {
+    background-color: #c9a91b;
+    color: black;
+}
+
+/* Ensure modal works well with scrolling content */
+body.modal-open { /* Add this class to body when the modal is open */
+    overflow: hidden;
+    padding-right: 17px; /* Adjust if scrollbar width is different */
+}
+
+
+.modal-confirm {		
+	color: white;
+	width: 400px;
+    position: relative;
+    top: 30%;
+    transform: translateY(-50%);
+}
+.modal-confirm .modal-content {
+	padding: 20px;
+	border-radius: 5px;
+	border: none;
+	text-align: center;
+	font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent white */
+    backdrop-filter: blur(9px);
+    border-radius: 8px;
+}
+
+.modal-confirm .modal-header {
+	border-bottom: none;   
+	position: relative;
+}
+.modal-confirm h4 {
+	text-align: center;
+	font-size: 26px;
+	margin: 30px 0 -10px;
+}
+.modal-confirm .close {
+	position: absolute;
+	top: -5px;
+	right: -2px;
+    color: white;
+}
+
+.modal-confirm .close:hover {
+    color: white;
+}
+.modal-confirm .modal-body {
+	color: #999;
+}
+.modal-confirm .modal-footer {
+	border: none;
+	text-align: center;		
+	border-radius: 5px;
+	font-size: 13px;
+	padding: 10px 15px 25px;
+}
+.modal-confirm .modal-footer a {
+	color: #999;
+}		
+.modal-confirm .icon-box {
+	width: 80px;
+	height: 80px;
+	margin: 0 auto;
+	border-radius: 50%;
+	z-index: 9;
+	text-align: center;
+	border: 3px solid #fdd114;
+}
+.modal-confirm .icon-box i {
+	color: #fdd114;
+	font-size: 46px;
+	display: inline-block;
+	margin-top: 13px;
+}
+.modal-confirm .btn, .modal-confirm .btn:active {
+	color: #fff;
+	border-radius: 4px;
+	background: #60c7c1;
+	text-decoration: none;
+	transition: all 0.4s;
+	line-height: normal;
+	min-width: 120px;
+	border: none;
+	min-height: 40px;
+	border-radius: 3px;
+	margin: 0 5px;
+}
+.modal-confirm .btn-secondary {
+	background: #c1c1c1;
+    color: rgb(52, 48, 48);
+}
+.modal-confirm .btn-secondary:hover, .modal-confirm .btn-secondary:focus {
+	background: #a8a8a8;
+    color: rgb(52, 48, 48);
+}
+.modal-confirm .btn-danger {
+	background: #fdd114;
+    color: rgb(52, 48, 48);
+}
+.modal-confirm .btn-danger:hover, .modal-confirm .btn-danger:focus {
+	background: #cba911;
+    color: rgb(52, 48, 48);
+}
+

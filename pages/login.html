@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Simulator Login</title>
+  <link rel="stylesheet" href="/css/login_style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form id="loginForm" action="#">
+      <h2>Login</h2>
+        <div class="input-field">
+        <input type="text" id="username" autocomplete="off" required>
+        <label>Enter your Username</label>
+      </div>
+      <div class="input-field" class="mb-3">
+        <input type="password" id="password" required>
+        <label>Enter your password</label>
+      </div>
+      <div id="credentialMessage"></div>
+      <button type="submit">Log In</button>
+      <div class="register">
+        <p>Don't have an account? <a href="register.html">Register</a></p>
+      </div>
+    </form>
+  </div>
+  <script src="/js/login.js"></script>
+</body>
+</html>

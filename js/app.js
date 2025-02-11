@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function redirectToLogin() {
         localStorage.removeItem('accessToken');  
-        window.location.href = "/pages/login.html";
+        window.location.href = "/login.html";
     }
 
     const accessToken = localStorage.getItem('accessToken');
@@ -140,7 +140,7 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
 
         localStorage.removeItem('accessToken');
 
-        window.location.href = 'login.html';
+        window.location.href = '/login.html';
     });
 
 

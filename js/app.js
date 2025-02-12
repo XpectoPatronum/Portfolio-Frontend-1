@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function redirectToLogin() {
         localStorage.removeItem('accessToken');  
-        window.location.href = "/login.html";
+        window.location.href = "/login";
     }
 
     const accessToken = localStorage.getItem('accessToken');
@@ -123,24 +123,30 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
     // Load Portfolio page by default
     loadData('https://portfolio-simulator-v1-0.onrender.com/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
 
+    function closeMenu() {
+        document.querySelector('.navTrigger').classList.remove('active');
+        document.getElementById('mainListDiv').classList.remove('show_list');
+    }
+
     // Event listeners for navbar links
     document.getElementById('portfolio-link').addEventListener('click', (e) => {
         e.preventDefault();
+        closeMenu();
         loadData('https://portfolio-simulator-v1-0.onrender.com/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
     });
 
     document.getElementById('pnl-link').addEventListener('click', (e) => {
         e.preventDefault();
+        closeMenu();
         loadData('https://portfolio-simulator-v1-0.onrender.com/app/v1/pnl/show', pnlTableHeaders, pnlDataProcessor,"realizedProfit");
     });
 
 
     document.getElementById('logout-link').addEventListener('click', (e) => {
         e.preventDefault(); 
-
+        closeMenu();
         localStorage.removeItem('accessToken');
-
-        window.location.href = '/login.html';
+        window.location.href = '/login';
     });
 
 
@@ -164,11 +170,13 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
     }
 
     buyBtn.addEventListener("click", function (event) {
+        closeMenu();
         event.preventDefault(); // Prevent default anchor behavior
         openModal("buy");
     });
 
     sellBtn.addEventListener("click", function (event) {
+        closeMenu();
         event.preventDefault();
         openModal("sell");
     });
@@ -317,10 +325,8 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
                 stockInput.value = ""; // Clear if no valid selection was made
             }
             suggestionsList.innerHTML = "";
-        }, 200); // Delay to allow selection before clearing
+        }, 300); // Delay to allow selection before clearing
     });
-    
-
 });
 
 

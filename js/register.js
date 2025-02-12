@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(responseData => {
                 console.log('Registration successful:', responseData);
                 alert(responseData.message)
-                window.location.href = "/login.html"; // Redirect to login after successful registration
+                window.location.href = "/login"; // Redirect to login after successful registration
             })
             .catch(error => {
                 console.error('Registration error:', error.message);

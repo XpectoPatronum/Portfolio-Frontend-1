@@ -26,7 +26,7 @@ loginForm.addEventListener("submit", async (event) => {
     localStorage.setItem("accessToken", data.access_token);
 
         // Redirect to the dashboard or perform any other action
-        window.location.href = "/index.html";
+        window.location.href = "/index";
     } else {
         // Handle login error
         document.getElementById("credentialMessage").innerText = "<p>Invalid credentials</p>";

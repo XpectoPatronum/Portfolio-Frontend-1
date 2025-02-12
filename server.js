@@ -44,7 +44,7 @@ setInterval(() => {
     })
     .then(res => console.log("Keep-alive POST request sent"))
     .catch(err => console.error("Keep-alive failed:", err));
-  }, 1 * 60 * 1000);      // 14 minutes
+  }, 14 * 60 * 1000);      // 14 minutes
 
   setInterval(() => {
     fetch("https://portfolio-simulator-v1-0.onrender.com/app/v1/ping", {

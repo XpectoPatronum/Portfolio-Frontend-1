@@ -9,6 +9,11 @@ app.use(express.static(path.join(__dirname, "css")));
 app.use(express.static(path.join(__dirname, "js")));
 app.use(express.static(path.join(__dirname, "assets")));
 app.use(express.static(path.join(__dirname, "fonts")));
+app.use(express.static(path.join(__dirname, "assets")));
+app.use(express.static(__dirname)); // Add this line to serve root files
+app.get("/favicon.ico", (req, res) => {
+    res.sendFile(path.join(__dirname, "assets", "favicon.ico"));
+  });
 
 // Serve login.html as the default page
 app.get("/", (req, res) => {

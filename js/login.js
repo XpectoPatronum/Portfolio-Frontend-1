@@ -29,7 +29,7 @@ loginForm.addEventListener("submit", async (event) => {
         window.location.href = "/index";
     } else {
         // Handle login error
-        document.getElementById("credentialMessage").innerText = "<p>Invalid credentials</p>";
+        document.getElementById("credentialMessage").innerText = "Invalid credentials";
         console.error("Login failed");
     }
 });

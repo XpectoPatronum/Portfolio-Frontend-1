@@ -37,26 +37,14 @@ app.listen(PORT, () => {
 
 
 setInterval(() => {
-    fetch("https://auto-complete-flrm.onrender.com/autocomplete", {
+    fetch("https://auto-complete-flrm.onrender.com/autocomplete/buy", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: "HDFC" })
     })
     .then(res => console.log("Keep-alive POST request sent"))
     .catch(err => console.error("Keep-alive failed:", err));
-  }, 14 * 60 * 1000);   
-
-  setInterval(() => {
-    fetch("https://auto-complete-sell.onrender.com/autocomplete", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: "HDFC" })
-    })
-    .then(res => console.log("Keep-alive POST request sent"))
-    .catch(err => console.error("Keep-alive failed:", err));
-  }, 14 * 60 * 1000);   
-
-  
+  }, 14 * 60 * 1000);      // 14 minutes
 
   setInterval(() => {
     fetch("https://portfolio-simulator-v1-0.onrender.com/app/v1/ping", {

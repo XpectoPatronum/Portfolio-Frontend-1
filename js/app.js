@@ -1,5 +1,5 @@
+var JAVA_BACKEND_URL;
 document.addEventListener('DOMContentLoaded', async () => {
-    var JAVA_BACKEND_URL;
     fetch("/config")
     .then(response => response.json())
     .then(config => {
@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log("Backend URL:", JAVA_BACKEND_URL);
     })
     .catch(error => console.error("Error fetching config:", error));
+});
 
+document.addEventListener('DOMContentLoaded', () => {
     function showLoginPrompt() {
         document.body.innerHTML = `
             <div style="text-align: center; padding: 20px;">

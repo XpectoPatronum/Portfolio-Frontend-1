@@ -1,7 +1,7 @@
 fetch("/config")
   .then(response => response.json())
   .then(config => {
-      const JAVA_BACKEND_URL = config.backendUrl || "http://localhost:8080";
+      var JAVA_BACKEND_URL = config.backendUrl || "http://localhost:8080";
       console.log("Backend URL:", JAVA_BACKEND_URL);
   })
   .catch(error => console.error("Error fetching config:", error));

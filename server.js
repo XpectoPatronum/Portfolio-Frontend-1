@@ -35,10 +35,6 @@ app.get("/register", (req, res) => {
   res.sendFile(path.join(__dirname, "register.html"));
 });
 
-app.get("/config", (req, res) => {
-    res.json({ backendUrl: process.env.JAVA_BACKEND_URL });
-});
-
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

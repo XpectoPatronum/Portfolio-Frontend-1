@@ -1,14 +1,6 @@
-var JAVA_BACKEND_URL;
-document.addEventListener('DOMContentLoaded', async () => {
-    fetch("/config")
-    .then(response => response.json())
-    .then(config => {
-        JAVA_BACKEND_URL = config.backendUrl || "http://localhost:8080";
-        console.log("Backend URL:", JAVA_BACKEND_URL);
-    })
-    .catch(error => console.error("Error fetching config:", error));
-});
-
+require("dotenv").config(); // Load .env variables
+var JAVA_BACKEND_URL = process.env.JAVA_BACKEND_API || "http://localhost:8080";
+console.log("JAVA_BACKEND_URL:", JAVA_BACKEND_URL); // Debug log
 document.addEventListener('DOMContentLoaded', () => {
     function showLoginPrompt() {
         document.body.innerHTML = `

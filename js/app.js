@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    var JAVA_BACKEND_URL;
     fetch("/config")
     .then(response => response.json())
     .then(config => {
-        var JAVA_BACKEND_URL = config.backendUrl || "http://localhost:8080";
+        JAVA_BACKEND_URL = config.backendUrl || "http://localhost:8080";
         console.log("Backend URL:", JAVA_BACKEND_URL);
     })
     .catch(error => console.error("Error fetching config:", error));

@@ -1,3 +1,5 @@
+const JAVA_BACKEND_URL = process.env.JAVA_BACKEND_URL || "http://localhost:8080";
+
 document.addEventListener('DOMContentLoaded', () => {
 
     function showLoginPrompt() {
@@ -121,7 +123,7 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
     }
 
     // Load Portfolio page by default
-    loadData('https://portfolio-simulator-v1-0.onrender.com/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
+    loadData(JAVA_BACKEND_URL+'/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
 
     function closeMenu() {
         document.querySelector('.navTrigger').classList.remove('active');
@@ -132,13 +134,13 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
     document.getElementById('portfolio-link').addEventListener('click', (e) => {
         e.preventDefault();
         closeMenu();
-        loadData('https://portfolio-simulator-v1-0.onrender.com/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
+        loadData(JAVA_BACKEND_URL+'/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
     });
 
     document.getElementById('pnl-link').addEventListener('click', (e) => {
         e.preventDefault();
         closeMenu();
-        loadData('https://portfolio-simulator-v1-0.onrender.com/app/v1/pnl/show', pnlTableHeaders, pnlDataProcessor,"realizedProfit");
+        loadData(JAVA_BACKEND_URL+'/app/v1/pnl/show', pnlTableHeaders, pnlDataProcessor,"realizedProfit");
     });
 
 
@@ -217,7 +219,7 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
         try {
             // Determine the correct endpoint based on action
             const endpoint = tradeType === 'BUY' ? '/buy' : '/sell';
-            const url = `https://portfolio-simulator-v1-0.onrender.com/app/v1/stock` + endpoint;
+            const url = JAVA_BACKEND_URL+`/app/v1/stock` + endpoint;
 
             // Prepare request payload
             const payload = {
@@ -241,7 +243,7 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
             // Handle response
             if (result.statusFinal == true) {
                 alert(`${tradeType} order for ${stockTicker} completed successfully!`);
-                loadData('https://portfolio-simulator-v1-0.onrender.com/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
+                loadData(JAVA_BACKEND_URL+'/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
                 tradeForm.reset(); // Clear form
             } else {
                 throw new Error('Trade order failed');
@@ -255,12 +257,11 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
     const stockInput = document.getElementById("stockTicker");
     const suggestionsList = document.getElementById("suggestions");
     const tradeTypeInput = document.getElementById("tradeTypeInput");
-    // console.log(tradeTypeInput.value);
+
     
     let debounceTimer;
-    let validSelection = false; // Track if user selects a valid option
-    
-    const API_BASE_URL = "https://portfolio-simulator-v1-0.onrender.com/app/v1/search/suggestion/"; // Replace with actual API
+    let validSelection = false;
+    const API_BASE_URL = JAVA_BACKEND_URL+"/app/v1/search/suggestion/"; 
     
     // Debounced API call
     function fetchSuggestions(query) {
@@ -300,12 +301,12 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
             const listItem = document.createElement("li");
             listItem.textContent = ticker;
     
-            listItem.addEventListener("mousedown", (event) => { // Use mousedown instead of click
-                event.preventDefault(); // Prevent blur event from firing first
+            listItem.addEventListener("mousedown", (event) => {
+                event.preventDefault();
                 stockInput.value = ticker;
-                validSelection = true; // Mark as valid selection
+                validSelection = true; 
                 suggestionsList.innerHTML = "";
-                stockInput.blur(); // Remove focus from input field
+                stockInput.blur();
             });
     
             suggestionsList.appendChild(listItem);
@@ -318,11 +319,11 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
         validSelection = false; // Reset validation on new input
     });
     
-    // Ensure only selected values persist on blur
+
     stockInput.addEventListener("blur", () => {
         setTimeout(() => {
             if (!validSelection) {
-                stockInput.value = ""; // Clear if no valid selection was made
+                stockInput.value = "";
             }
             suggestionsList.innerHTML = "";
         }, 300); // Delay to allow selection before clearing

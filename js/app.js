@@ -280,6 +280,7 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
             }
     
             try {
+                console.log(API_BASE_URL+buyOrSell+encodeURIComponent(query));
                 const response = await fetch(API_BASE_URL+buyOrSell+encodeURIComponent(query),{
                     method: 'GET',
                     headers: {

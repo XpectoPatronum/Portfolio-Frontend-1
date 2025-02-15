@@ -51,11 +51,11 @@ setInterval(() => {
     .catch(err => console.error("Keep-alive failed:", err));
   }, 14 * 60 * 1000);      // 14 minutes
 
-  setInterval(() => {
+setInterval(() => {
     fetch("https://portfolio-simulator-v1-0.onrender.com/app/v1/ping", {
-      method: "GET"
+        method: "GET"
     })
     .then(res => console.log("Ping backend GET request sent"))
     .catch(err => console.error("Ping backend failed:", err));
-  }, 14 * 60 * 1000);
+}, 14 * 60 * 1000);
   

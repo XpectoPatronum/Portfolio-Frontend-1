@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     var JAVA_BACKEND_URL;
     fetch("/config")
     .then(response => response.json())

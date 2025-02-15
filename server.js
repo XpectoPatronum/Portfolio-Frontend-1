@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, "js")));
 app.use(express.static(path.join(__dirname, "assets")));
 app.use(express.static(path.join(__dirname, "fonts")));
 app.use(express.static(path.join(__dirname, "assets")));
-app.use(express.static(__dirname)); // Add this line to serve root files
+app.use(express.static(__dirname));
 app.get("/favicon.ico", (req, res) => {
     res.sendFile(path.join(__dirname, "assets", "favicon.ico"));
   });
@@ -39,23 +39,4 @@ app.get("/register", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
-
-
-setInterval(() => {
-    fetch("https://auto-complete-flrm.onrender.com/autocomplete/buy", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: "HDFC" })
-    })
-    .then(res => console.log("Keep-alive POST request sent"))
-    .catch(err => console.error("Keep-alive failed:", err));
-  }, 14 * 60 * 1000);      // 14 minutes
-
-setInterval(() => {
-    fetch("https://portfolio-simulator-v1-0.onrender.com/app/v1/ping", {
-        method: "GET"
-    })
-    .then(res => console.log("Ping backend GET request sent"))
-    .catch(err => console.error("Ping backend failed:", err));
-}, 14 * 60 * 1000);
   

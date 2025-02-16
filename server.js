@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -33,6 +34,10 @@ app.get("/index", (req, res) => {
 // Route for register page
 app.get("/register", (req, res) => {
   res.sendFile(path.join(__dirname, "register.html"));
+});
+
+app.get('/api/config', (req, res) => {
+    res.json({ JAVA_BACKEND_URL: process.env.JAVA_BACKEND_API });
 });
 
 // Start the server

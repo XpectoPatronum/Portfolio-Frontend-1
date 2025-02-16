@@ -1,6 +1,3 @@
-require("dotenv").config(); // Load .env variables
-var JAVA_BACKEND_URL = process.env.JAVA_BACKEND_API || "http://localhost:8080";
-console.log("JAVA_BACKEND_URL:", JAVA_BACKEND_URL); // Debug log
 document.addEventListener('DOMContentLoaded', () => {
     function showLoginPrompt() {
         document.body.innerHTML = `
@@ -123,7 +120,7 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
     }
 
     // Load Portfolio page by default
-    loadData(JAVA_BACKEND_URL+'/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
+    loadData(process.env.JAVA_BACKEND_API+'/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
 
     function closeMenu() {
         document.querySelector('.navTrigger').classList.remove('active');
@@ -134,13 +131,13 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
     document.getElementById('portfolio-link').addEventListener('click', (e) => {
         e.preventDefault();
         closeMenu();
-        loadData(JAVA_BACKEND_URL+'/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
+        loadData(process.env.JAVA_BACKEND_API+'/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
     });
 
     document.getElementById('pnl-link').addEventListener('click', (e) => {
         e.preventDefault();
         closeMenu();
-        loadData(JAVA_BACKEND_URL+'/app/v1/pnl/show', pnlTableHeaders, pnlDataProcessor,"realizedProfit");
+        loadData(process.env.JAVA_BACKEND_API+'/app/v1/pnl/show', pnlTableHeaders, pnlDataProcessor,"realizedProfit");
     });
 
 
@@ -219,7 +216,7 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
         try {
             // Determine the correct endpoint based on action
             const endpoint = tradeType === 'BUY' ? '/buy' : '/sell';
-            const url = JAVA_BACKEND_URL+`/app/v1/stock` + endpoint;
+            const url = process.env.JAVA_BACKEND_API+`/app/v1/stock` + endpoint;
 
             // Prepare request payload
             const payload = {
@@ -243,7 +240,7 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
             // Handle response
             if (result.statusFinal == true) {
                 alert(`${tradeType} order for ${stockTicker} completed successfully!`);
-                loadData(JAVA_BACKEND_URL+'/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
+                loadData(process.env.JAVA_BACKEND_API+'/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
                 tradeForm.reset(); // Clear form
             } else {
                 throw new Error('Trade order failed');
@@ -261,7 +258,7 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
     
     let debounceTimer;
     let validSelection = false;
-    const API_BASE_URL = JAVA_BACKEND_URL+"/app/v1/search/suggestion/"; 
+    const API_BASE_URL = process.env.JAVA_BACKEND_API+"/app/v1/search/suggestion/"; 
     
     // Debounced API call
     function fetchSuggestions(query) {

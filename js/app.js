@@ -7,7 +7,6 @@ async function loadConfig() {
         if (data.JAVA_BACKEND_URL) {
             JAVA_BACKEND_URL = data.JAVA_BACKEND_URL;
         }
-        console.log(JAVA_BACKEND_URL);
     } catch (error) {
         console.error("Error fetching config:", error);
     }

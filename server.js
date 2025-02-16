@@ -37,7 +37,7 @@ app.get("/register", (req, res) => {
 });
 
 app.get('/api/config', (req, res) => {
-    res.json({ JAVA_BACKEND_URL: process.env.JAVA_BACKEND_API });
+    res.json({ JAVA_BACKEND_URL: process.env.JAVA_BACKEND_URL });
 });
 
 // Start the server

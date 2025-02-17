@@ -42,8 +42,8 @@
             <ul class="navlinks">
                 <li><a id="portfolio-link" href="#">Portfolio</a></li>
                 <li><a id="pnl-link" href="#">PnL</a></li>
-                <li><a id="openModalBtn" class="buy-btn" href="#">Buy</a></li>
-                <li><a id="openModalBtn" class="sell-btn" href="#">Sell</a></li>
+                <li><a id="openBuyModalBtn" class="buy-btn" href="#">Buy</a></li>
+                <li><a id="openSellModalBtn" class="sell-btn" href="#">Sell</a></li>
                 <li>
                   <a id="profile" href="#" class="profile-link">
                     <i class="fas fa-user"></i>
@@ -147,7 +147,7 @@
                 $("#mainListDiv").fadeIn();
                 $("table").toggleClass("blur-disable");
             });
-            $('#openBuyModalBtn, #openSellModalBtn, #my-close').on('click', function () {
+            $('#openBuyModalBtn, #openSellModalBtn, .my-close').on('click', function () {
                 console.log("toggle");
                 $("table").toggleClass("blur-disable");
             });

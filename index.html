@@ -147,10 +147,11 @@
                 $("#mainListDiv").fadeIn();
                 $("table").toggleClass("blur-disable");
             });
+            $('#openBuyModalBtn, #openSellModalBtn, #my-close').on('click', function () {
+                $("table").toggleClass("blur-disable");
+            });
         });
-        $('#openBuyModalBtn, #openSellModalBtn, #my-close').on('click', function () {
-          $("table").toggleClass("blur-disable");
-        });
+        
     </script>
 </body>
 </html>

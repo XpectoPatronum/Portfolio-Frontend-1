@@ -136,7 +136,7 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
     // Load Portfolio page by default
     loadData(JAVA_BACKEND_URL+'/app/v1/portfolio/show', portfolioTableHeaders, portfolioDataProcessor,"totalInvested");
 
-    function closeMenu() {
+function closeMenu() {
         document.querySelector('.navTrigger').classList.remove('active');
         document.getElementById('mainListDiv').classList.remove('show_list');
     }
@@ -195,6 +195,7 @@ ${summaryValue !== undefined ? `<p class="mb-3" style="font-size: 1.1rem;"><b>${
     });
 
     closeModal.addEventListener("click", function () {
+        closeMenu();
         tradeModal.style.display = "none";
     });
 

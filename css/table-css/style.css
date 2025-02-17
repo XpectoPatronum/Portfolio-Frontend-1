@@ -75,14 +75,17 @@ table{
         color: #fdd114; }
   .custom-table .td-box-wrap {
     padding: 0; }
-  .custom-table .box {
-    background: #fff;
-    border-radius: 4px;
-    margin-top: 15px;
-    margin-bottom: 15px; }
-    .custom-table .box td, .custom-table .box th {
-      border: none !important; }
+.custom-table .box {
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 15px;
+  margin-bottom: 15px; 
+}
 
-      .blur-disable {
-        backdrop-filter: none !important;
-    }
+.custom-table .box td, .custom-table .box th {
+  border: none !important; 
+}
+
+.blur-disable {
+  backdrop-filter: none !important;
+}
